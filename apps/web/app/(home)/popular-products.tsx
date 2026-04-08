@@ -1,12 +1,14 @@
 import Link from 'next/link';
-import { TPopularProducts } from '../../types/popular-products';
 import { ROUTES } from '@/consts/routes';
+import { TCourse } from '@/types/courses';
+import CourseCard from '@/component/course-card';
 
 interface IPopularProducts {
-  products: TPopularProducts[];
+  products: TCourse[];
 }
 
 export default function PopularProducts({ products }: IPopularProducts) {
+  const popularProduect = products.slice(0, 6)
   return (
     <section className='py-20 px-8 mx-auto'>
       <div className='text-center mb-16'>
@@ -16,24 +18,7 @@ export default function PopularProducts({ products }: IPopularProducts) {
         </p>
       </div>
       <div className='grid grid-cols-3 gap-8'>
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className='bg-white border border-black rounded-2xl p-8 hover:shadow-xl transition-all'
-            style={{ minHeight: '300px' }}
-          >
-            <div className='space-y-4 text-left'>
-              <h3 className='text-3xl font-bold text-gray-800'>
-                {product.title}
-              </h3>
-              <p className='text-lg text-gray-600'>{product.level}</p>
-              <p className='text-lg text-gray-600'>{product.rating}</p>
-              <p className='text-2xl font-bold text-blue-600'>
-                {product.price}
-              </p>
-            </div>
-          </div>
-        ))}
+        <CourseCard courses={popularProduect} />
       </div>
       <Link
         href={ROUTES.CATALOG}
