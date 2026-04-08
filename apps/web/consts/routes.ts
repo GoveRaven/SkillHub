@@ -1,6 +1,6 @@
 export const ROUTES = {
-    HOME: '/',
-    CATALOG: "/catalog",
-    CONTENT: '/content',
-    COURSE_CARD: '/сourse-card'
-}
+  HOME: '/',
+  CATALOG: '/catalog',
+  CONTENT: '/content',
+  COURSE: '/course',
+};

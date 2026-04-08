@@ -1,7 +1,6 @@
 import { TCourse } from '@/types/courses';
 
 export const coursesData: TCourse[] = [
-  // НОВИЧОК (★4.7, ₽1 990)
   {
     id: 1,
     title: 'HTML/CSS основы',
@@ -59,7 +58,6 @@ export const coursesData: TCourse[] = [
     price: '₽1 990',
   },
 
-  // СРЕДНИЙ (★4.8, ₽4 990)
   {
     id: 9,
     title: 'HTML/CSS Pro',
@@ -117,7 +115,6 @@ export const coursesData: TCourse[] = [
     price: '₽4 990',
   },
 
-  // ПРОДВИНУТЫЙ (★4.9, ₽7 990)
   {
     id: 17,
     title: 'HTML/CSS Advanced',

@@ -1,5 +1,5 @@
 export type TAdvantages = {
-  icon: string;
+  icon?: string;
   title: string;
   desc: string;
 };
