@@ -22,6 +22,18 @@ export default function Header() {
         >
           Каталог
         </Link>
+        <Link
+          href={ROUTES.CONTENT.ABOUT}
+          className='text-lg font-semibold hover:text-indigo-200 transition-colors'
+        >
+          О нас
+        </Link>
+        <Link
+          href={ROUTES.CONTENT.BLOG}
+          className='text-lg font-semibold hover:text-indigo-200 transition-colors'
+        >
+          Статьи
+        </Link>
       </nav>
     </header>
   );

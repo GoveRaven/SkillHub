@@ -1,6 +1,11 @@
+const CONTENTROUTES = {
+  ABOUT: '/content/about',
+  BLOG: '/content',
+};
+
 export const ROUTES = {
   HOME: '/',
   CATALOG: '/catalog',
-  CONTENT: '/content',
+  CONTENT: CONTENTROUTES,
   COURSE: '/course',
 };
