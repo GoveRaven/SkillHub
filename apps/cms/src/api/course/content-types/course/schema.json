@@ -22,11 +22,11 @@
         "Продвинутый"
       ]
     },
-    "rating": {
-      "type": "string"
-    },
     "price": {
-      "type": "string"
+      "type": "integer"
+    },
+    "rating": {
+      "type": "decimal"
     },
     "description": {
       "type": "text"

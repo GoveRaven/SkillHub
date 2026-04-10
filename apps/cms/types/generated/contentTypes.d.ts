@@ -500,9 +500,9 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       'api::course.course'
     > &
       Schema.Attribute.Private;
-    price: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    rating: Schema.Attribute.String;
+    rating: Schema.Attribute.Decimal;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
