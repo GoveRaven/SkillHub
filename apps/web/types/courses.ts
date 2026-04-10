@@ -11,9 +11,14 @@ export type TCourse = {
 
 export type TFullCourse = TCourse & {
   description: string;
-  cover: string;
+  cover: TCover;
   category: string;
   author: string;
-  benefits: TAdvantages[];
-  faq: TFAQ[];
+  advantages: TAdvantages[];
+  FAQ: TFAQ[];
 };
+
+type TCover = {
+  url: string;
+  alternativeText: string
+}
