@@ -2,11 +2,20 @@
 import { useState } from 'react';
 import CoursesList from './coursesList';
 import Filters from './filters';
-import { coursesData } from '@/data/courses.data';
+import { useQuery } from '@tanstack/react-query';
+import { fetchCourses } from '@/api/utils/courses';
 
 export default function Catalog() {
   const [currentFilter, setCurrentFilter] = useState('Все');
   const [currentPage, setPage] = useState(1);
+
+  const { data: courses, isLoading } = useQuery({
+    queryKey: ['courses'],
+    queryFn: () => fetchCourses(),
+  });
+
+  //TODO: добавить loader
+  if (isLoading) return <></>;
 
   return (
     <section className='py-20 px-8 w-7xl m-auto'>
@@ -15,7 +24,7 @@ export default function Catalog() {
           Каталог курсов
         </h1>
         <p className='text-xl text-gray-600 max-w-2xl mx-auto'>
-          Найдите курс своего уровня {coursesData.length} курсов всего
+          Найдите курс своего уровня {courses.length} курсов всего
         </p>
       </div>
       <Filters
@@ -24,7 +33,7 @@ export default function Catalog() {
         onPageReset={setPage}
       />
       <CoursesList
-        courses={coursesData}
+        courses={courses}
         currentFilter={currentFilter}
         currentPage={currentPage}
         onPageChange={setPage}

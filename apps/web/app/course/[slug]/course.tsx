@@ -1,22 +1,31 @@
 'use client';
 
+import { BASE_URL, ENDPOINT, POPULATE_ALL } from '@/api/config';
+import { fetchCourse } from '@/api/utils/courses';
 import Advantages from '@/component/advantages';
 import FAQ from '@/component/FAQ';
 import { TFullCourse } from '@/types/courses';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
-interface ICourse {
-  content: TFullCourse;
-}
+export default function Course() {
+  const { slug: documentId } = useParams();
+  const { data: course, isLoading } = useQuery({
+    queryKey: [`course:${documentId}`],
+    queryFn: () => fetchCourse(String(documentId)),
+  });
 
-export default function Course({ content }: ICourse) {
+  //TODO: добавить loader
+  if (isLoading) return <></>;
+
   return (
     <section className='py-20 px-8 max-w-7xl mx-auto'>
       <div className='grid grid-cols-2 gap-12 mb-20 items-start'>
         <Image
           className='w-full h-[500px] bg-gray-200 rounded-3xl'
-          src={`http://localhost:1337${content.cover.url}`}
-          alt={content.cover.alternativeText}
+          src={`http://localhost:1337${course.cover.url}`}
+          alt={course.cover.alternativeText}
           width={100}
           height={100}
           // TODO: УБРАТЬ unoptimized
@@ -25,27 +34,27 @@ export default function Course({ content }: ICourse) {
         <div className='space-y-8'>
           <div className='flex gap-4'>
             <span className='px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full'>
-              {content.category}
+              {course.category}
             </span>
             <span className='px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full'>
-              {content.author}
+              {course.author}
             </span>
             <span className='px-4 py-2 bg-amber-100 text-amber-800 rounded-full'>
-              {content.level}
+              {course.level}
             </span>
           </div>
 
           <h1 className='text-5xl font-bold text-gray-800 leading-tight'>
-            {content.title}
+            {course.title}
           </h1>
 
           <p className='text-xl text-gray-600 leading-relaxed max-w-2xl'>
-            {content.description}
+            {course.description}
           </p>
 
           <div className='flex items-center gap-6 pt-4'>
             <span className='text-4xl font-bold text-blue-600'>
-              {content.price}
+              {`₽ ${course.price}`}
             </span>
             <button className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-4 rounded-2xl text-xl font-semibold hover:shadow-xl transition-all '>
               Приобрести курс
@@ -57,9 +66,9 @@ export default function Course({ content }: ICourse) {
         <h2 className='text-3xl font-bold text-gray-800 mb-12 text-center'>
           Что вы получите
         </h2>
-        <Advantages data={content.advantages} />
+        <Advantages data={course.advantages} />
       </div>
-      <FAQ data={content.FAQ} />
+      <FAQ data={course.FAQ} />
     </section>
   );
 }

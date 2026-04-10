@@ -11,8 +11,8 @@ export default function CourseCard({ courses }: ICourseCard) {
     <>
       {courses.map((course) => (
         <Link
-          href={`${ROUTES.COURSE}/${course.id}`}
-          key={course.id}
+          href={`${ROUTES.COURSE}/${course.documentId}`}
+          key={course.documentId}
           className='bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all 
                  col-span-1 h-full flex flex-col justify-between'
         >
@@ -26,9 +26,9 @@ export default function CourseCard({ courses }: ICourseCard) {
           </div>
 
           <div className='mt-auto space-y-2'>
-            <span className='text-lg text-gray-600 block'>{course.rating}</span>
+            <span className='text-lg text-gray-600 block'>{`⋆ ${course.rating}`}</span>
             <span className='text-2xl font-bold text-blue-600'>
-              {course.price}
+              {`₽ ${course.price}`}
             </span>
           </div>
         </Link>
