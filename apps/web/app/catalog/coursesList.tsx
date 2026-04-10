@@ -32,7 +32,6 @@ export default function CoursesList({
 
   return (
     <>
-      {' '}
       <div className='grid grid-cols-3 gap-8 mb-16'>
         <CourseCard courses={currentCourses} />
       </div>

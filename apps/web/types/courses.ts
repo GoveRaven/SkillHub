@@ -6,7 +6,7 @@ export type TCourse = {
   level: 'Новичок' | 'Средний' | 'Продвинутый';
   rating: string;
   price: string;
-  id: number;
+  documentId: string;
 };
 
 export type TFullCourse = TCourse & {

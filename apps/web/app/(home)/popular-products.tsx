@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
-import { TCourse } from '@/types/courses';
+import { TFullCourse } from '@/types/courses';
 import CourseCard from '@/component/course-card';
 
 interface IPopularProducts {
-  products: TCourse[];
+  products: TFullCourse[];
 }
 
 export default function PopularProducts({ products }: IPopularProducts) {
