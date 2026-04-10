@@ -21,7 +21,7 @@ export default function Advantages({ data }: IAdvantages) {
           )}
           <div className='pl-4 pt-4 text-left'>
             <h3 className='text-2xl font-bold'>{advantage.title}</h3>
-            <p className='text-lg opacity-90 mt-5'>{advantage.desc}</p>
+            <p className='text-lg opacity-90 mt-5'>{advantage.description}</p>
           </div>
         </div>
       ))}
