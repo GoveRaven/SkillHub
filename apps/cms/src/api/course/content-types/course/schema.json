@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Новичок",
+        "Средний",
+        "Продвинутый"
+      ]
+    },
+    "rating": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "advantages": {
+      "type": "component",
+      "component": "repeatable.advantages",
+      "repeatable": true
+    },
+    "FAQ": {
+      "type": "component",
+      "component": "repeatable.faq",
+      "repeatable": true
+    }
+  }
+}
