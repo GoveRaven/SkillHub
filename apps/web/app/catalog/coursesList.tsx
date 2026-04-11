@@ -1,10 +1,10 @@
 'use client';
-import { TCourse } from '@/types/courses';
+import { TFullCourse } from '@/types/courses';
 import Pagination from './pagination';
 import CourseCard from '@/component/course-card';
 
 interface ICoursesList {
-  courses: TCourse[];
+  courses: TFullCourse[];
   currentFilter: string;
   currentPage: number;
   onPageChange: (filter: number) => void;

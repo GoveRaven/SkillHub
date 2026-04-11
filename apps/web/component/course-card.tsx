@@ -1,9 +1,9 @@
 import { ROUTES } from '@/consts/routes';
-import { TCourse } from '@/types/courses';
+import { TFullCourse } from '@/types/courses';
 import Link from 'next/link';
 
 interface ICourseCard {
-  courses: TCourse[];
+  courses: TFullCourse[];
 }
 
 export default function CourseCard({ courses }: ICourseCard) {
@@ -20,7 +20,10 @@ export default function CourseCard({ courses }: ICourseCard) {
             <h3 className='text-2xl font-bold text-gray-800 line-clamp-2'>
               {course.title}
             </h3>
-            <span className='px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium inline-block'>
+            <span className='px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium inline-block mr-5'>
+              {course.category}
+            </span>
+            <span className='px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium inline-block'>
               {course.level}
             </span>
           </div>
