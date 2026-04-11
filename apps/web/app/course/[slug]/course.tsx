@@ -8,6 +8,8 @@ import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Error from '@/component/error';
+import Link from 'next/link';
+import { ROUTES } from '@/consts/routes';
 
 export default function Course() {
   const { slug: documentId } = useParams();
@@ -25,6 +27,14 @@ export default function Course() {
 
   return (
     <section className='py-20 px-8 max-w-7xl mx-auto'>
+      <div className='mb-12'>
+        <Link
+          href={ROUTES.CATALOG}
+          className='inline-flex items-center gap-2 text-lg text-indigo-600 hover:text-indigo-700'
+        >
+          Назад в каталог
+        </Link>
+      </div>
       <div className='grid grid-cols-2 gap-12 mb-20 items-start'>
         <Image
           className='w-full h-[500px] bg-gray-200 rounded-3xl'
