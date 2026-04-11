@@ -5,4 +5,4 @@ export const ENDPOINT = {
   ARTICLE: '/articles'
 };
 
-export const POPULATE_ALL = '?populate=*';
+export const POPULATE_ALL = 'populate=*';

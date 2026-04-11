@@ -16,8 +16,6 @@ export default function Content() {
     queryFn: () => fetchArticles(),
   });
 
-  console.log(articles);
-
   if (isLoading) return <Loader />;
   if (isError) return <Error />;
 

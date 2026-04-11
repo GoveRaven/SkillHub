@@ -9,7 +9,7 @@ export async function fetchArticles() {
 
 export async function fetchArticle(documentId: string) {
   const { data } = await fetch(
-    `${BASE_URL}${ENDPOINT.ARTICLE}/${documentId}${POPULATE_ALL}`,
+    `${BASE_URL}${ENDPOINT.ARTICLE}/${documentId}?${POPULATE_ALL}`,
   ).then((res) => res.json());
   return data;
 }

@@ -19,9 +19,7 @@ export default function Article() {
     queryKey: [`articles${documentId}`],
     queryFn: () => fetchArticle(String(documentId)),
   });
-
-  console.log(article);
-
+  
   if (isLoading) return <Loader />;
   if (isError) return <Error />;
 
