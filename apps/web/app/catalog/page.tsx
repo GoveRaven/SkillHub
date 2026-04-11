@@ -8,16 +8,22 @@ import Loader from '@/component/loader';
 import Error from '@/component/error';
 
 export default function Catalog() {
-  const [currentFilter, setCurrentFilter] = useState('Все');
+  const [currentLevel, setCurrentLevel] = useState('Все');
+  const [currentCategory, setCurrentCategory] = useState('Все');
   const [currentPage, setPage] = useState(1);
+
+  const filters = {
+    level: currentLevel,
+    category: currentCategory,
+  };
 
   const {
     data: courses,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ['courses'],
-    queryFn: () => fetchCourses(),
+    queryKey: ['courses', currentLevel, currentCategory],
+    queryFn: () => fetchCourses({ filters: filters }),
   });
 
   if (isLoading) return <Loader />;
@@ -30,17 +36,17 @@ export default function Catalog() {
           Каталог курсов
         </h1>
         <p className='text-xl text-gray-600 max-w-2xl mx-auto'>
-          Найдите курс своего уровня {courses.length} курсов всего
+          Найдите курс своего уровня {0 || courses.length} курсов всего
         </p>
       </div>
       <Filters
-        currentFilter={currentFilter}
-        onFilterChange={setCurrentFilter}
+        currentFilters={[currentLevel, currentCategory]}
+        onFilterChanges={[setCurrentLevel, setCurrentCategory]}
         onPageReset={setPage}
       />
       <CoursesList
-        courses={courses}
-        currentFilter={currentFilter}
+        courses={courses || []}
+        currentFilter={currentLevel}
         currentPage={currentPage}
         onPageChange={setPage}
       />

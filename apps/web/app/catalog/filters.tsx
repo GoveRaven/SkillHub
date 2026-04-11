@@ -1,34 +1,61 @@
+import { CATEGORY, LEVEL } from '@/consts/filters';
+
 interface IFiltersProps {
-  currentFilter: string;
-  onFilterChange: (filter: string) => void;
+  currentFilters: string[];
+  onFilterChanges: ((filter: string) => void)[];
   onPageReset: (filter: number) => void;
 }
 
 export default function Filters({
-  currentFilter,
-  onFilterChange,
-  onPageReset: onPageChange,
+  currentFilters,
+  onFilterChanges,
+  onPageReset,
 }: IFiltersProps) {
-  const levels = ['Все', 'Новичок', 'Средний', 'Продвинутый'];
-
+  const [currentLevel, currentCategory] = currentFilters;
+  const [setLevel, setCategory] = onFilterChanges;
   return (
-    <div className='flex justify-center mb-16 gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200'>
-      {levels.map((level) => (
-        <button
-          key={level}
-          onClick={() => {
-            onFilterChange(level);
-            onPageChange(1);
-          }}
-          className={`px-8 py-4 rounded-xl font-semibold whitespace-nowrap transition-colors duration-200 hover:shadow-lg ${
-            currentFilter === level
-              ? 'bg-gradient-to-r from-indigo-600 to-purple-700 text-white shadow-md'
-              : 'bg-white text-gray-700 hover:bg-gray-50 hover:text-indigo-700 border border-gray-200'
-          }`}
-        >
-          {level}
-        </button>
-      ))}
+    <div className='mb-16 rounded-2xl border border-gray-200 bg-white p-4'>
+      <div className='grid gap-4 md:grid-cols-2'>
+        <label className='block'>
+          <span className='mb-2 block text-sm font-medium text-gray-600'>
+            Уровень
+          </span>
+          <select
+            value={currentLevel}
+            onChange={(e) => {
+              setLevel(e.target.value);
+              onPageReset(1);
+            }}
+            className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
+          >
+            {LEVEL.map((level) => (
+              <option key={level} value={level}>
+                {level}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className='block'>
+          <span className='mb-2 block text-sm font-medium text-gray-600'>
+            Категория
+          </span>
+          <select
+            value={currentCategory}
+            onChange={(e) => {
+              setCategory(e.target.value);
+              onPageReset(1);
+            }}
+            className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
+          >
+            {CATEGORY.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
     </div>
   );
 }
