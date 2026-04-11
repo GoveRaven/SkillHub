@@ -33,7 +33,16 @@ export default function CoursesList({
   return (
     <>
       <div className='grid grid-cols-3 gap-8 mb-16'>
-        <CourseCard courses={currentCourses} />
+        {courses.length === 0 ? (
+          <div className='col-span-full flex flex-col items-center justify-center py-20'>
+            <h2 className='text-2xl font-medium text-gray-500 mb-2 text-center'>
+              Таких курсов нет
+            </h2>
+            <p className='text-gray-400 text-sm'>Попробуйте другие фильтры</p>
+          </div>
+        ) : (
+          <CourseCard courses={currentCourses} />
+        )}
       </div>
       {countPages > 1 && (
         <Pagination
