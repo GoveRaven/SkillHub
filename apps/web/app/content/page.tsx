@@ -1,9 +1,26 @@
 'use client';
-import { articles } from '@/data/articles.data';
+import { fetchArticles } from '@/api/utils/articles';
+import Loader from '@/component/loader';
+import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
+import Error from '@/component/error';
+import { TArticle } from '@/types/articles';
 
 export default function Content() {
-  const data = articles;
+  const {
+    data: articles,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['articles'],
+    queryFn: () => fetchArticles(),
+  });
+
+  console.log(articles);
+
+  if (isLoading) return <Loader />;
+  if (isError) return <Error />;
+
   return (
     <section className='py-20 px-8 max-w-6xl mx-auto'>
       <div className='text-center mb-20'>
@@ -11,19 +28,19 @@ export default function Content() {
           Блог SkillHub
         </h1>
         <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-          Полезные статьи для frontend-разработчиков всех уровней
+          Полезные статьи для разработчиков всех уровней
         </p>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-20'>
-        {data.map((article) => (
+        {articles.map((article: TArticle) => (
           <Link
-            key={article.slug}
-            href={`/content/${article.slug}`}
+            key={article.documentId}
+            href={`/content/${article.documentId}`}
             className='group bg-white/70 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 h-full'
           >
             <div className='flex items-center gap-3 text-sm text-gray-500 mb-4'>
               <span className='w-2 h-2 bg-gray-400 rounded-full'></span>
-              <span>Frontend</span>
+              <span>{article.category}</span>
             </div>
 
             <h3 className='text-2xl md:text-3xl font-bold text-gray-800 hover:text-indigo-600 mb-4 leading-tight'>
