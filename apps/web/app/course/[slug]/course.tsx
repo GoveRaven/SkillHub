@@ -1,23 +1,27 @@
 'use client';
 
-import { BASE_URL, ENDPOINT, POPULATE_ALL } from '@/api/config';
 import { fetchCourse } from '@/api/utils/courses';
 import Advantages from '@/component/advantages';
 import FAQ from '@/component/FAQ';
-import { TFullCourse } from '@/types/courses';
+import Loader from '@/component/loader';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import Error from '@/component/error';
 
 export default function Course() {
   const { slug: documentId } = useParams();
-  const { data: course, isLoading } = useQuery({
+  const {
+    data: course,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: [`course:${documentId}`],
     queryFn: () => fetchCourse(String(documentId)),
   });
 
-  //TODO: добавить loader
-  if (isLoading) return <></>;
+  if (isLoading) return <Loader />;
+  if (isError) return <Error />;
 
   return (
     <section className='py-20 px-8 max-w-7xl mx-auto'>

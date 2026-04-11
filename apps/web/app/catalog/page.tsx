@@ -4,18 +4,24 @@ import CoursesList from './coursesList';
 import Filters from './filters';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCourses } from '@/api/utils/courses';
+import Loader from '@/component/loader';
+import Error from '@/component/error';
 
 export default function Catalog() {
   const [currentFilter, setCurrentFilter] = useState('Все');
   const [currentPage, setPage] = useState(1);
 
-  const { data: courses, isLoading } = useQuery({
+  const {
+    data: courses,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ['courses'],
     queryFn: () => fetchCourses(),
   });
 
-  //TODO: добавить loader
-  if (isLoading) return <></>;
+  if (isLoading) return <Loader />;
+  if (isError) return <Error />;
 
   return (
     <section className='py-20 px-8 w-7xl m-auto'>
