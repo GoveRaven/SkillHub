@@ -1,7 +1,7 @@
 import { BASE_URL, ENDPOINT, POPULATE_ALL } from '../config';
 
 type TParams = {
-  filters?: TFilters;
+  filters: TFilters;
 };
 
 type TFilters = {
@@ -9,8 +9,14 @@ type TFilters = {
   category: string;
 };
 
-export async function fetchCourses({ filters }: TParams = {}) {
-  if (filters === undefined) return null;
+const defaultFilter: TFilters = {
+  level: '',
+  category: '',
+};
+
+export async function fetchCourses(
+  { filters }: TParams = { filters: defaultFilter },
+) {
   const url = filterCourses(filters);
   const { data } = await fetch(url).then((res) => res.json());
   return data;
