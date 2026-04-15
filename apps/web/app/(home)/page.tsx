@@ -12,14 +12,14 @@ import Error from '@/component/error';
 export default function Home() {
   const {
     data: courses,
-    isLoading,
+    isPending,
     isError,
   } = useQuery({
     queryKey: ['courses'],
     queryFn: () => fetchCourses(),
   });
 
-  if (isLoading) return <Loader />;
+  if (isPending) return <Loader />;
   if (isError) return <Error />;
 
   const favoriteCourses = [...courses].sort(
