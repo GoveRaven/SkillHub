@@ -1,15 +1,22 @@
+import { error } from 'console';
 import { BASE_URL, ENDPOINT, POPULATE_ALL } from '../config';
 
 export async function fetchArticles() {
-  const { data } = await fetch(`${BASE_URL}${ENDPOINT.ARTICLE}`).then((res) =>
-    res.json(),
-  );
+  const res = await fetch(`${BASE_URL}${ENDPOINT.ARTICLE}`);
+  if (!res.ok) {
+    throw new Error(`Error: ${res.status}`);
+  }
+  const { data } = await res.json();
   return data;
 }
 
 export async function fetchArticle(documentId: string) {
-  const { data } = await fetch(
+  const res = await fetch(
     `${BASE_URL}${ENDPOINT.ARTICLE}/${documentId}?${POPULATE_ALL}`,
-  ).then((res) => res.json());
+  );
+  if (!res.ok) {
+    throw new Error(`Error: ${res.status}`);
+  }
+  const { data } = await res.json();
   return data;
 }

@@ -1,31 +1,28 @@
 import { BASE_URL, ENDPOINT, POPULATE_ALL } from '../config';
 
-type TParams = {
-  filters: TFilters;
-};
-
-type TFilters = {
+export type TFilters = {
   level: string;
   category: string;
 };
 
-const defaultFilter: TFilters = {
-  level: '',
-  category: '',
-};
-
-export async function fetchCourses(
-  { filters }: TParams = { filters: defaultFilter },
-) {
+export async function fetchCourses(filters: TFilters) {
   const url = filterCourses(filters);
-  const { data } = await fetch(url).then((res) => res.json());
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Error: ${res.status}`);
+  }
+  const { data } = await res.json();
   return data;
 }
 
 export async function fetchCourse(documentId: string) {
-  const { data } = await fetch(
+  const res = await fetch(
     `${BASE_URL}${ENDPOINT.COURSE}/${documentId}?${POPULATE_ALL}`,
-  ).then((res) => res.json());
+  );
+  if (!res.ok) {
+    throw new Error(`Error: ${res.status}`);
+  }
+  const { data } = await res.json();
   return data;
 }
 
