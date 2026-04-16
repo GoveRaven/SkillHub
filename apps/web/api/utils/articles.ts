@@ -1,4 +1,3 @@
-import { error } from 'console';
 import { BASE_URL, ENDPOINT, POPULATE_ALL } from '../config';
 
 export async function fetchArticles() {

@@ -11,7 +11,6 @@ export function useCourses(filters: TFilters = defaultFilter) {
     queryKey: ['courses', filters],
     queryFn: () => fetchCourses(filters),
   });
-  console.log(courses)
   return { courses, isPending, isError };
 }
 
