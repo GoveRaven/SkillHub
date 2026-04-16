@@ -1,6 +1,6 @@
 # SkillHub
 
-SkillHub — веб-приложение платформы онлайн-курсов с динамическим контентом, получаемым с сервера через headless CMS.
+SkillHub — веб-приложение для просмотра онлайн-курсов с динамическим контентом, получаемым с сервера через headless CMS.
 
 ## Возможности
 
@@ -29,24 +29,15 @@ SkillHub — веб-приложение платформы онлайн-кур�
 
 Единый запуск реализован в ветке `cms-part-of-the-site`.
 
-### 1. Клонирование
-
 ```bash
 git clone https://github.com/GoveRaven/SkillHub
 cd SkillHub
-```
-
-### 2. Переключение на ветку
-```bash
 git checkout cms-part-of-the-site
-```
-
-### 3. Установка зависимостей
-```bash
 pnpm install
-```
-
-### 4. Запуск
-```bash
 pnpm run dev
 ```
+
+### После запуска:
+
+- http://localhost:3000 — клиентская часть (Next.js)  
+- http://localhost:1337 — админ-панель Strapi и API  
