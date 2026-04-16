@@ -28,7 +28,7 @@ export default function Filters({
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
           >
-            {LEVEL.map((level) => (
+            {Object.values(LEVEL).map((level) => (
               <option key={level} value={level}>
                 {level}
               </option>
@@ -48,7 +48,7 @@ export default function Filters({
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
           >
-            {CATEGORY.map((category) => (
+            {Object.values(CATEGORY).map((category) => (
               <option key={category} value={category}>
                 {category}
               </option>
