@@ -1,28 +1,20 @@
 'use client';
 
-import { fetchCourse } from '@/api/utils/courses';
 import Advantages from '@/component/advantages';
 import FAQ from '@/component/FAQ';
 import Loader from '@/component/loader';
-import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Error from '@/component/error';
 import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
+import { useCourse } from '@/api/hooks/useCourses';
 
 export default function Course() {
   const { slug: documentId } = useParams();
-  const {
-    data: course,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: [`course:${documentId}`],
-    queryFn: () => fetchCourse(String(documentId)),
-  });
+  const { course, isPending, isError } = useCourse(String(documentId));
 
-  if (isLoading) return <Loader />;
+  if (isPending) return <Loader />;
   if (isError) return <Error />;
 
   return (

@@ -2,14 +2,14 @@
 import { useState } from 'react';
 import CoursesList from './coursesList';
 import Filters from './filters';
-import { useQuery } from '@tanstack/react-query';
-import { fetchCourses } from '@/api/utils/courses';
 import Loader from '@/component/loader';
 import Error from '@/component/error';
+import { useCourses } from '@/api/hooks/useCourses';
+import { LEVEL } from '@/consts/filters';
 
 export default function Catalog() {
-  const [currentLevel, setCurrentLevel] = useState('Все');
-  const [currentCategory, setCurrentCategory] = useState('Все');
+  const [currentLevel, setCurrentLevel] = useState(LEVEL.ALL);
+  const [currentCategory, setCurrentCategory] = useState(LEVEL.ALL);
   const [currentPage, setPage] = useState(1);
 
   const filters = {
@@ -17,16 +17,9 @@ export default function Catalog() {
     category: currentCategory,
   };
 
-  const {
-    data: courses,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ['courses', currentLevel, currentCategory],
-    queryFn: () => fetchCourses({ filters: filters }),
-  });
+  const {courses, isPending, isError} = useCourses(filters);
 
-  if (isLoading) return <Loader />;
+  if (isPending) return <Loader />;
   if (isError) return <Error />;
 
   return (

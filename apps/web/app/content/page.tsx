@@ -1,22 +1,13 @@
 'use client';
-import { fetchArticles } from '@/api/utils/articles';
 import Loader from '@/component/loader';
-import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import Error from '@/component/error';
 import { TArticle } from '@/types/articles';
+import { useArticles } from '@/api/hooks/useArticles';
 
 export default function Content() {
-  const {
-    data: articles,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ['articles'],
-    queryFn: () => fetchArticles(),
-  });
-
-  if (isLoading) return <Loader />;
+  const { articles, isPending, isError } = useArticles();
+  if (isPending) return <Loader />;
   if (isError) return <Error />;
 
   return (

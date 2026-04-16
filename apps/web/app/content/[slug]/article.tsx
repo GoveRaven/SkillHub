@@ -1,26 +1,18 @@
 'use client';
-import { fetchArticle } from '@/api/utils/articles';
 import Loader from '@/component/loader';
-import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import Error from '@/component/error';
 import { ROUTES } from '@/consts/routes';
 import Image from 'next/image';
+import { useArticle } from '@/api/hooks/useArticles';
 
 export default function Article() {
   const { slug: documentId } = useParams();
 
-  const {
-    data: article,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: [`articles${documentId}`],
-    queryFn: () => fetchArticle(String(documentId)),
-  });
-  
-  if (isLoading) return <Loader />;
+  const {article, isPending, isError} = useArticle(String(documentId));
+
+  if (isPending) return <Loader />;
   if (isError) return <Error />;
 
   return (

@@ -3,21 +3,13 @@ import HeroBlock from './hero-block';
 import PopularProducts from './popular-products';
 import PlatformAdvantages from './platform-advantages';
 import FAQBlock from './FAQ';
-import { useQuery } from '@tanstack/react-query';
-import { fetchCourses } from '@/api/utils/courses';
 import { TFullCourse } from '@/types/courses';
 import Loader from '@/component/loader';
 import Error from '@/component/error';
+import { useCourses } from '@/api/hooks/useCourses';
 
 export default function Home() {
-  const {
-    data: courses,
-    isPending,
-    isError,
-  } = useQuery({
-    queryKey: ['courses'],
-    queryFn: () => fetchCourses(),
-  });
+  const { courses, isPending, isError } = useCourses();
 
   if (isPending) return <Loader />;
   if (isError) return <Error />;
