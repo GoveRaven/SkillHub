@@ -9,7 +9,7 @@ export default function Advantages({ advantages }: IAdvantages) {
     <div className='grid grid-cols-3 gap-8'>
       {advantages.map((advantage) => (
         <div
-          key={id}
+          key={advantage.title}
           className='bg-gradient-to-br from-indigo-600 to-purple-800 text-white rounded-2xl p-8 relative min-h-[200px]'
         >
           {advantage.icon ? (

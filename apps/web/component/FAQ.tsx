@@ -9,7 +9,7 @@ export default function FAQ({ faq }: IFAQ) {
     <div className='space-y-6 max-w-5xl mx-auto'>
       {faq.map((faq) => (
         <div
-          key={index}
+          key={faq.question}
           className='bg-white border-2 border-gray-200 rounded-xl p-10 shadow-lg'
         >
           <h3 className='text-2xl font-bold mb-6 text-transparent bg-gradient-to-r from-indigo-600 to-purple-800 bg-clip-text'>
