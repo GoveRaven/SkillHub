@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Courses from './courses';
-import Filters from './filters';
+import { Courses } from './courses';
+import { Filters } from './filters';
 import Loader from '@/component/loader';
 import Error from '@/component/error';
 import { useCourses } from '@/api/hooks/useCourses';

@@ -1,7 +1,7 @@
-import Advantages from '@/component/advantages';
+import { Advantages } from '@/component/advantages';
 import { advantages } from '@/data/advantages.data';
 
-export default function PlatformAdvantages() {
+export function PlatformAdvantages() {
   return (
     <section className='py-20 px-8 mx-auto'>
       <div className='text-center mb-16'>

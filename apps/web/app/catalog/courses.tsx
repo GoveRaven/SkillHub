@@ -1,8 +1,8 @@
 'use client';
 
 import { TFullCourse } from '@/types/courses';
-import Pagination from './pagination';
-import CourseCards from '@/component/course-card';
+import { Pagination } from './pagination';
+import { CourseCards } from '@/component/course-card';
 import { COURSESPERPAGE } from '@/consts/coursesPage';
 
 interface ICourses {
@@ -12,7 +12,7 @@ interface ICourses {
   onPageChange: (filter: number) => void;
 }
 
-export default function Courses({
+export function Courses({
   courses,
   currentFilter,
   currentPage,

@@ -4,7 +4,7 @@ interface IFAQ {
   faq: TFAQ[];
 }
 
-export default function FAQ({ faq }: IFAQ) {
+export function FAQ({ faq }: IFAQ) {
   return (
     <div className='space-y-6 max-w-5xl mx-auto'>
       {faq.map((faq) => (

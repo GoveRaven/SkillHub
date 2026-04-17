@@ -6,7 +6,7 @@ interface IFilters {
   onPageReset: (filter: number) => void;
 }
 
-export default function Filters({
+export function Filters({
   currentFilters,
   onFilterChanges,
   onPageReset,

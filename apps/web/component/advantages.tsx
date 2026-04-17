@@ -4,7 +4,7 @@ interface IAdvantages {
   advantages: TAdvantages[];
 }
 
-export default function Advantages({ advantages }: IAdvantages) {
+export function Advantages({ advantages }: IAdvantages) {
   return (
     <div className='grid grid-cols-3 gap-8'>
       {advantages.map((advantage) => (

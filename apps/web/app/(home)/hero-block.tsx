@@ -1,7 +1,7 @@
 import { ROUTES } from "@/consts/routes";
 import Link from "next/link";
 
-export default function HeroBlock() {
+export function HeroBlock() {
   return (
     <section className='h-[65vh] flex items-center justify-center flex-col bg-gradient-to-br from-blue-600 to-indigo-800 text-white'>
       <div className='text-center px-8 max-w-6xl mx-auto'>

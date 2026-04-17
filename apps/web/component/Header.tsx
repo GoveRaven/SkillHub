@@ -4,7 +4,7 @@ import { ROUTES } from '@/consts/routes';
 import Link from 'next/link';
 // import { usePathname } from 'next/navigation';
 
-export default function Header() {
+export function Header() {
   //TODO: убирать header на страницах ошибки и 404
   // const pathname = usePathname();
   // const validPaths = Object.values(ROUTES);

@@ -1,7 +1,7 @@
 'use client';
 
-import Advantages from '@/component/advantages';
-import FAQ from '@/component/FAQ';
+import { Advantages } from '@/component/advantages';
+import { FAQ } from '@/component/FAQ';
 import Loader from '@/component/loader';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
 import { useCourse } from '@/api/hooks/useCourses';
 
-export default function Course() {
+export function Course() {
   const { slug: documentId } = useParams();
   const { course, isPending, isError } = useCourse(String(documentId));
 

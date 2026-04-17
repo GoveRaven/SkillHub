@@ -1,5 +1,5 @@
-import Article from './article';
+import { Article } from './article';
 
 export default function Blog() {
-  return <Article />
+  return <Article />;
 }

@@ -7,7 +7,7 @@ import { ROUTES } from '@/consts/routes';
 import Image from 'next/image';
 import { useArticle } from '@/api/hooks/useArticles';
 
-export default function Article() {
+export function Article() {
   const { slug: documentId } = useParams();
 
   const {article, isPending, isError} = useArticle(String(documentId));

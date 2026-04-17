@@ -1,7 +1,7 @@
-import FAQ from '@/component/FAQ';
+import { FAQ } from '@/component/FAQ';
 import { faqItems } from '@/data/FAQ.data';
 
-export default function FAQBlock() {
+export function FAQBlock() {
   return (
     <section className='py-20 px-8'>
       <div className='text-center mb-20 max-w-4xl mx-auto'>

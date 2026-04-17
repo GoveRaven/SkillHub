@@ -6,7 +6,7 @@ interface ICourseCard {
   courses: TFullCourse[];
 }
 
-export default function CourseCards({ courses }: ICourseCard) {
+export function CourseCards({ courses }: ICourseCard) {
   return (
     <>
       {courses.map((course) => (
