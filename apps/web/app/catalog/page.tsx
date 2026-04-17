@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import Courses from './courses';
 import Filters from './filters';
