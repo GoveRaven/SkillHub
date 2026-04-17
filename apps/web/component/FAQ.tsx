@@ -1,13 +1,13 @@
 import { TFAQ } from '@/types/FAQ';
 
 interface IFAQ {
-  data: TFAQ[];
+  faq: TFAQ[];
 }
 
-export default function FAQ({ data }: IFAQ) {
+export default function FAQ({ faq }: IFAQ) {
   return (
     <div className='space-y-6 max-w-5xl mx-auto'>
-      {data.map((faq, index) => (
+      {faq.map((faq) => (
         <div
           key={index}
           className='bg-white border-2 border-gray-200 rounded-xl p-10 shadow-lg'

@@ -1,13 +1,13 @@
 import { TAdvantages } from '@/types/advantages';
 
 interface IAdvantages {
-  data: TAdvantages[];
+  advantages: TAdvantages[];
 }
 
-export default function Advantages({ data }: IAdvantages) {
+export default function Advantages({ advantages }: IAdvantages) {
   return (
     <div className='grid grid-cols-3 gap-8'>
-      {data.map((advantage, id) => (
+      {advantages.map((advantage) => (
         <div
           key={id}
           className='bg-gradient-to-br from-indigo-600 to-purple-800 text-white rounded-2xl p-8 relative min-h-[200px]'

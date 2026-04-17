@@ -1,4 +1,4 @@
-export const faqItemsData = [
+export const faqItems = [
   {
     question: 'Как получить сертификат?',
     answer:

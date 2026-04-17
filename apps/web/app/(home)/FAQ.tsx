@@ -1,8 +1,7 @@
 import FAQ from '@/component/FAQ';
-import { faqItemsData } from '@/data/FAQ.data';
+import { faqItems } from '@/data/FAQ.data';
 
 export default function FAQBlock() {
-  const data = faqItemsData;
   return (
     <section className='py-20 px-8'>
       <div className='text-center mb-20 max-w-4xl mx-auto'>
@@ -11,7 +10,7 @@ export default function FAQBlock() {
         </h2>
         <p className='text-xl text-gray-600'>Ответы на все твои вопросы</p>
       </div>
-      <FAQ data={data} />
+      <FAQ faq={faqItems} />
     </section>
   );
 }

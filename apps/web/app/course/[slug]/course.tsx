@@ -72,9 +72,9 @@ export default function Course() {
         <h2 className='text-3xl font-bold text-gray-800 mb-12 text-center'>
           Что вы получите
         </h2>
-        <Advantages data={course.advantages} />
+        <Advantages advantages={course.advantages} />
       </div>
-      <FAQ data={course.FAQ} />
+      <FAQ faq={course.FAQ} />
     </section>
   );
 }

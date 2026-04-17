@@ -1,8 +1,7 @@
 import Advantages from '@/component/advantages';
-import { advantagesData } from '@/data/advantages.data';
+import { advantages } from '@/data/advantages.data';
 
 export default function PlatformAdvantages() {
-  const data = advantagesData;
   return (
     <section className='py-20 px-8 mx-auto'>
       <div className='text-center mb-16'>
@@ -13,7 +12,7 @@ export default function PlatformAdvantages() {
           Всё для твоего успеха в IT
         </p>
       </div>
-      <Advantages data={data} />
+      <Advantages advantages={advantages} />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-export const advantagesData = [
+export const advantages = [
   {
     icon: '💻',
     title: 'Реальная практика',
