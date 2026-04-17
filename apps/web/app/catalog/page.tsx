@@ -6,11 +6,11 @@ import Filters from './filters';
 import Loader from '@/component/loader';
 import Error from '@/component/error';
 import { useCourses } from '@/api/hooks/useCourses';
-import { LEVEL } from '@/consts/filters';
+import { CATEGORY, LEVEL } from '@/consts/filters';
 
 export default function Catalog() {
   const [currentLevel, setCurrentLevel] = useState(LEVEL.ALL);
-  const [currentCategory, setCurrentCategory] = useState(LEVEL.ALL);
+  const [currentCategory, setCurrentCategory] = useState(CATEGORY.ALL);
   const [currentPage, setPage] = useState(1);
 
   const filters = {
@@ -18,7 +18,7 @@ export default function Catalog() {
     category: currentCategory,
   };
 
-  const {courses, isPending, isError} = useCourses(filters);
+  const { courses, isPending, isError } = useCourses(filters);
 
   if (isPending) return <Loader />;
   if (isError) return <Error />;
