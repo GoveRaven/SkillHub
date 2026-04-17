@@ -1,31 +1,31 @@
 'use client';
+
 import { TFullCourse } from '@/types/courses';
 import Pagination from './pagination';
-import CourseCard from '@/component/course-card';
+import CourseCards from '@/component/course-card';
+import { COURSESPERPAGE } from '@/consts/coursesPage';
 
-interface ICoursesList {
+interface ICourses {
   courses: TFullCourse[];
   currentFilter: string;
   currentPage: number;
   onPageChange: (filter: number) => void;
 }
 
-export default function CoursesList({
+export default function Courses({
   courses,
   currentFilter,
   currentPage,
   onPageChange,
-}: ICoursesList) {
-  const coursesPerPage = 9;
-
+}: ICourses) {
   const filteredCourses =
     currentFilter === 'Все'
       ? courses
       : courses.filter((course) => course.level === currentFilter);
 
   const currentCourses = filteredCourses.slice(
-    (currentPage - 1) * coursesPerPage,
-    currentPage * coursesPerPage,
+    (currentPage - 1) * COURSESPERPAGE,
+    currentPage * COURSESPERPAGE,
   );
 
   const countPages = Math.ceil(filteredCourses.length / 9);
@@ -41,7 +41,7 @@ export default function CoursesList({
             <p className='text-gray-400 text-sm'>Попробуйте другие фильтры</p>
           </div>
         ) : (
-          <CourseCard courses={currentCourses} />
+          <CourseCards courses={currentCourses} />
         )}
       </div>
       {countPages > 1 && (

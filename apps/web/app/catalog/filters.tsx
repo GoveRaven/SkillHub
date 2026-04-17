@@ -1,6 +1,6 @@
 import { CATEGORY, LEVEL } from '@/consts/filters';
 
-interface IFiltersProps {
+interface IFilters {
   currentFilters: string[];
   onFilterChanges: ((filter: string) => void)[];
   onPageReset: (filter: number) => void;
@@ -10,7 +10,7 @@ export default function Filters({
   currentFilters,
   onFilterChanges,
   onPageReset,
-}: IFiltersProps) {
+}: IFilters) {
   const [currentLevel, currentCategory] = currentFilters;
   const [setLevel, setCategory] = onFilterChanges;
   return (

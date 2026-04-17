@@ -1,4 +1,4 @@
-const CONTENTROUTES = {
+const CONTENT_ROUTES = {
   ABOUT: '/content/about',
   BLOG: '/content',
 };
@@ -6,6 +6,6 @@ const CONTENTROUTES = {
 export const ROUTES = {
   HOME: '/',
   CATALOG: '/catalog',
-  CONTENT: CONTENTROUTES,
+  CONTENT: CONTENT_ROUTES,
   COURSE: '/course',
 };

@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import CoursesList from './coursesList';
+import Courses from './courses';
 import Filters from './filters';
 import Loader from '@/component/loader';
 import Error from '@/component/error';
@@ -37,7 +37,7 @@ export default function Catalog() {
         onFilterChanges={[setCurrentLevel, setCurrentCategory]}
         onPageReset={setPage}
       />
-      <CoursesList
+      <Courses
         courses={courses || []}
         currentFilter={currentLevel}
         currentPage={currentPage}
