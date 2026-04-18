@@ -12,6 +12,7 @@ export default function Catalog() {
   const [currentLevel, setCurrentLevel] = useState(LEVEL.ALL);
   const [currentCategory, setCurrentCategory] = useState(CATEGORY.ALL);
   const [currentPage, setPage] = useState(1);
+  const onPageReset = () => setPage(1);
 
   const filters = {
     level: currentLevel,
@@ -34,9 +35,12 @@ export default function Catalog() {
         </p>
       </div>
       <Filters
-        currentFilters={[currentLevel, currentCategory]}
-        onFilterChanges={[setCurrentLevel, setCurrentCategory]}
-        onPageReset={setPage}
+        filters={{ level: currentLevel, category: currentCategory }}
+        onFilterChanges={{
+          setLevel: setCurrentLevel,
+          setCategory: setCurrentCategory,
+        }}
+        onPageReset={onPageReset}
       />
       <Courses
         courses={courses || []}

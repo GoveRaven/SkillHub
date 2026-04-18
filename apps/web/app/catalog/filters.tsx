@@ -1,18 +1,21 @@
 import { CATEGORY, LEVEL } from '@/consts/filters';
 
 interface IFilters {
-  currentFilters: string[];
-  onFilterChanges: ((filter: string) => void)[];
-  onPageReset: (filter: number) => void;
+  filters: {
+    level: string;
+    category: string;
+  };
+  onFilterChanges: {
+    setLevel: (filter: string) => void;
+    setCategory: (filter: string) => void;
+  };
+  onPageReset: () => void;
 }
 
-export function Filters({
-  currentFilters,
-  onFilterChanges,
-  onPageReset,
-}: IFilters) {
-  const [currentLevel, currentCategory] = currentFilters;
-  const [setLevel, setCategory] = onFilterChanges;
+export function Filters({ filters, onFilterChanges, onPageReset }: IFilters) {
+  const { level, category } = filters;
+  const { setLevel, setCategory } = onFilterChanges;
+
   return (
     <div className='mb-16 rounded-2xl border border-gray-200 bg-white p-4'>
       <div className='grid gap-4 md:grid-cols-2'>
@@ -21,10 +24,10 @@ export function Filters({
             Уровень
           </span>
           <select
-            value={currentLevel}
+            value={level}
             onChange={(e) => {
               setLevel(e.target.value);
-              onPageReset(1);
+              onPageReset();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
           >
@@ -41,10 +44,10 @@ export function Filters({
             Категория
           </span>
           <select
-            value={currentCategory}
+            value={category}
             onChange={(e) => {
               setCategory(e.target.value);
-              onPageReset(1);
+              onPageReset();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
           >
