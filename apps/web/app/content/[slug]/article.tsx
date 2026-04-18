@@ -1,4 +1,5 @@
 'use client';
+
 import Loader from '@/component/loader';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';

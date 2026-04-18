@@ -1,4 +1,5 @@
 'use client';
+
 import { HeroBlock } from './hero-block';
 import { PopularProducts } from './popular-products';
 import { PlatformAdvantages } from './platform-advantages';
