@@ -7,28 +7,21 @@ import { COURSESPERPAGE } from '@/consts/coursesPage';
 
 interface ICourses {
   courses: TFullCourse[];
-  currentFilter: string;
   currentPage: number;
   onPageChange: (filter: number) => void;
 }
 
 export function Courses({
   courses,
-  currentFilter,
   currentPage,
   onPageChange,
 }: ICourses) {
-  const filteredCourses =
-    currentFilter === 'Все'
-      ? courses
-      : courses.filter((course) => course.level === currentFilter);
-
-  const currentCourses = filteredCourses.slice(
+  const currentCourses = courses.slice(
     (currentPage - 1) * COURSESPERPAGE,
     currentPage * COURSESPERPAGE,
   );
 
-  const countPages = Math.ceil(filteredCourses.length / 9);
+  const countPages = Math.ceil(courses.length / 9);
 
   return (
     <>

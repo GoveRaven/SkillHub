@@ -44,7 +44,6 @@ export default function Catalog() {
       />
       <Courses
         courses={courses || []}
-        currentFilter={currentLevel}
         currentPage={currentPage}
         onPageChange={setPage}
       />
