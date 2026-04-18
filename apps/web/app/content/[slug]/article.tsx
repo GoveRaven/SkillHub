@@ -11,7 +11,7 @@ import { useArticle } from '@/api/hooks/useArticles';
 export function Article() {
   const { slug: documentId } = useParams();
 
-  const {article, isPending, isError} = useArticle(String(documentId));
+  const { article, isPending, isError } = useArticle(String(documentId));
 
   if (isPending) return <Loader />;
   if (isError) return <Error />;
@@ -32,7 +32,7 @@ export function Article() {
         height={100}
         // TODO: УБРАТЬ unoptimized
         unoptimized
-      ></Image>
+      />
       <h1 className='text-5xl font-bold text-gray-800 mb-8 leading-tight'>
         {article.title}
       </h1>
