@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
-import { CourseCards } from '@/component/course-card';
+import { CourseCards } from '@/components/course-card';
 
 interface IPopularProducts {
   products: TFullCourse[];

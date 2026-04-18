@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { Courses } from './courses';
 import { Filters } from './filters';
-import Loader from '@/component/loader';
-import Error from '@/component/error';
+import Loader from '@/components/loader';
+import Error from '@/components/error';
 import { useCourses } from '@/api/hooks/useCourses';
 import { CATEGORY, LEVEL } from '@/consts/filters';
 

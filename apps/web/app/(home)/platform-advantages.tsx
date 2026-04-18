@@ -1,4 +1,4 @@
-import { Advantages } from '@/component/advantages';
+import { Advantages } from '@/components/advantages';
 import { advantages } from '@/data/advantages.data';
 
 export function PlatformAdvantages() {

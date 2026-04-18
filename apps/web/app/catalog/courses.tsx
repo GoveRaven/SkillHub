@@ -2,7 +2,7 @@
 
 import { TFullCourse } from '@/types/courses';
 import { Pagination } from './pagination';
-import { CourseCards } from '@/component/course-card';
+import { CourseCards } from '@/components/course-card';
 import { COURSESPERPAGE } from '@/consts/coursesPage';
 
 interface ICourses {
@@ -11,11 +11,7 @@ interface ICourses {
   onPageChange: (filter: number) => void;
 }
 
-export function Courses({
-  courses,
-  currentPage,
-  onPageChange,
-}: ICourses) {
+export function Courses({ courses, currentPage, onPageChange }: ICourses) {
   const currentCourses = courses.slice(
     (currentPage - 1) * COURSESPERPAGE,
     currentPage * COURSESPERPAGE,

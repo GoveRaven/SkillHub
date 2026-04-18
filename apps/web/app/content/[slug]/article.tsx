@@ -1,9 +1,9 @@
 'use client';
 
-import Loader from '@/component/loader';
+import Loader from '@/components/loader';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import Error from '@/component/error';
+import Error from '@/components/error';
 import { ROUTES } from '@/consts/routes';
 import Image from 'next/image';
 import { useArticle } from '@/api/hooks/useArticles';

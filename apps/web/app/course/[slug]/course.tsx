@@ -1,11 +1,11 @@
 'use client';
 
-import { Advantages } from '@/component/advantages';
-import { FAQ } from '@/component/FAQ';
-import Loader from '@/component/loader';
+import { Advantages } from '@/components/advantages';
+import { FAQ } from '@/components/FAQ';
+import Loader from '@/components/loader';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import Error from '@/component/error';
+import Error from '@/components/error';
 import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
 import { useCourse } from '@/api/hooks/useCourses';

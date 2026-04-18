@@ -1,4 +1,4 @@
-import { FAQ } from '@/component/FAQ';
+import { FAQ } from '@/components/FAQ';
 import { faqItems } from '@/data/FAQ.data';
 
 export function FAQBlock() {
