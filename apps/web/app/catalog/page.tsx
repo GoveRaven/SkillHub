@@ -34,6 +34,7 @@ export default function Catalog() {
           Каталог курсов
         </h1>
         <p className='text-xl text-gray-600 max-w-2xl mx-auto'>
+          {/* // TODO: Сделать утилит для склонения "курсов" */}
           Найдите курс своего уровня {courses.length} курсов всего
         </p>
       </div>
