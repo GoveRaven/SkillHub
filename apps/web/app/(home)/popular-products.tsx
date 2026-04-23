@@ -3,11 +3,11 @@ import { ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
 import { CourseCards } from '@/components/course-card';
 
-interface IPopularProducts {
+type TPopularProducts = {
   products: TFullCourse[];
 }
 
-export function PopularProducts({ products }: IPopularProducts) {
+export function PopularProducts({ products }: TPopularProducts) {
   const popularProducts = products.slice(0, 6);
   return (
     <section className='py-20 px-8 mx-75'>

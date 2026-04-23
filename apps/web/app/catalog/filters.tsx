@@ -1,6 +1,6 @@
 import { CATEGORY, LEVEL } from '@/consts/filters';
 
-interface IFilters {
+type TFilters = {
   filters: {
     level: string;
     category: string;
@@ -12,7 +12,7 @@ interface IFilters {
   onPageReset: () => void;
 }
 
-export function Filters({ filters, onFilterChanges, onPageReset }: IFilters) {
+export function Filters({ filters, onFilterChanges, onPageReset }: TFilters) {
   const { level, category } = filters;
   const { setLevel, setCategory } = onFilterChanges;
 

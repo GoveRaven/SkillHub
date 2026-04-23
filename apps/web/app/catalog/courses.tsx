@@ -5,13 +5,13 @@ import { Pagination } from './pagination';
 import { CourseCards } from '@/components/course-card';
 import { COURSESPERPAGE } from '@/consts/coursesPage';
 
-interface ICourses {
+type TCourses = {
   courses: TFullCourse[];
   currentPage: number;
   onPageChange: (filter: number) => void;
-}
+};
 
-export function Courses({ courses, currentPage, onPageChange }: ICourses) {
+export function Courses({ courses, currentPage, onPageChange }: TCourses) {
   const currentCourses = courses.slice(
     (currentPage - 1) * COURSESPERPAGE,
     currentPage * COURSESPERPAGE,

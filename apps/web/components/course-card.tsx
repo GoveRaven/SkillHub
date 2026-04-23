@@ -2,11 +2,11 @@ import { ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
 import Link from 'next/link';
 
-interface ICourseCard {
+type TCourseCards = {
   courses: TFullCourse[];
 }
 
-export function CourseCards({ courses }: ICourseCard) {
+export function CourseCards({ courses }: TCourseCards) {
   return (
     <>
       {courses.map((course) => (

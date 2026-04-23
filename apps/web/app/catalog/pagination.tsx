@@ -1,4 +1,4 @@
-interface IPagination {
+type TPagination = {
   countPages: number;
   curentPage: number;
   onPageChange: (page: number) => void;
@@ -8,7 +8,7 @@ export function Pagination({
   countPages,
   curentPage,
   onPageChange,
-}: IPagination) {
+}: TPagination) {
   return (
     <div className='flex justify-center items-center space-x-2 mt-12'>
       {Array.from(Array(countPages).keys()).map((number) => {
