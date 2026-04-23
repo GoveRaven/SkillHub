@@ -4,6 +4,7 @@ import { TFullCourse } from '@/types/courses';
 import { Pagination } from './pagination';
 import { CourseCard } from '@/components/course-card';
 import { COURSESPERPAGE } from '@/consts/coursesPage';
+import { useMemo } from 'react';
 
 type TCourses = {
   courses: TFullCourse[];
@@ -12,10 +13,12 @@ type TCourses = {
 };
 
 export function Courses({ courses, currentPage, onPageChange }: TCourses) {
-  const currentCourses = courses.slice(
-    (currentPage - 1) * COURSESPERPAGE,
-    currentPage * COURSESPERPAGE,
-  );
+  const currentCourses = useMemo(() => {
+    return courses.slice(
+      (currentPage - 1) * COURSESPERPAGE,
+      currentPage * COURSESPERPAGE,
+    );
+  }, [courses, currentPage]);
 
   const countPages = Math.ceil(courses.length / 9);
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Courses } from './courses';
 import { Filters } from './filters';
 import Loader from '@/components/loader';
@@ -14,10 +14,13 @@ export default function Catalog() {
   const [currentPage, setPage] = useState(1);
   const onPageReset = () => setPage(1);
 
-  const filters = {
-    level: currentLevel,
-    category: currentCategory,
-  };
+  const filters = useMemo(
+    () => ({
+      level: currentLevel,
+      category: currentCategory,
+    }),
+    [currentLevel, currentCategory],
+  );
 
   const { courses, isPending, isError } = useCourses(filters);
 
@@ -35,7 +38,7 @@ export default function Catalog() {
         </p>
       </div>
       <Filters
-        filters={{ level: currentLevel, category: currentCategory }}
+        filters={filters}
         onFilterChanges={{
           setLevel: setCurrentLevel,
           setCategory: setCurrentCategory,
