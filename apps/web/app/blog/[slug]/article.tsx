@@ -19,7 +19,7 @@ export function Article() {
   return (
     <section className='py-20 px-8 max-w-4xl mx-auto'>
       <Link
-        href={ROUTES.CONTENT.BLOG}
+        href={ROUTES.BLOG.BLOG}
         className='inline-flex items-center gap-2 text-lg text-indigo-600 mb-12 font-medium hover:text-indigo-700'
       >
         Назад к блогу

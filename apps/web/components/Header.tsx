@@ -25,13 +25,13 @@ export function Header() {
           Каталог
         </Link>
         <Link
-          href={ROUTES.CONTENT.ABOUT}
+          href={ROUTES.BLOG.ABOUT}
           className='text-lg font-semibold hover:text-indigo-200 transition-colors'
         >
           О нас
         </Link>
         <Link
-          href={ROUTES.CONTENT.BLOG}
+          href={ROUTES.BLOG.BLOG}
           className='text-lg font-semibold hover:text-indigo-200 transition-colors'
         >
           Статьи

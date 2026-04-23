@@ -5,8 +5,9 @@ import Link from 'next/link';
 import Error from '@/components/error';
 import { TArticle } from '@/types/articles';
 import { useArticles } from '@/api/hooks/useArticles';
+import { ROUTES } from '@/consts/routes';
 
-export default function Content() {
+export default function Blog() {
   const { articles, isPending, isError } = useArticles();
   if (isPending) return <Loader />;
   if (isError) return <Error />;
@@ -25,7 +26,8 @@ export default function Content() {
         {articles.map((article: TArticle) => (
           <Link
             key={article.documentId}
-            href={`/content/${article.documentId}`}
+            //TODO: Завести утилиту для написания href
+            href={`${ROUTES.BLOG.BLOG}/${article.documentId}`}
             className='group bg-white/70 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 h-full'
           >
             <div className='flex items-center gap-3 text-sm text-gray-500 mb-4'>
