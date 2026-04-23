@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Skillhub',
-  description: 'Pet-project',
+  description: 'Платформа онлайн-курсов',
 };
 
 export default function RootLayout({
