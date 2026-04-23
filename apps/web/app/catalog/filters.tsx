@@ -2,15 +2,15 @@ import { CATEGORY, LEVEL } from '@/consts/filters';
 
 type TFilters = {
   filters: {
-    level: string;
-    category: string;
+    level: LEVEL;
+    category: CATEGORY;
   };
   onFilterChanges: {
-    setLevel: (filter: string) => void;
-    setCategory: (filter: string) => void;
+    setLevel: (filter: LEVEL) => void;
+    setCategory: (filter: CATEGORY) => void;
   };
   onPageReset: () => void;
-}
+};
 
 export function Filters({ filters, onFilterChanges, onPageReset }: TFilters) {
   const { level, category } = filters;
@@ -26,7 +26,7 @@ export function Filters({ filters, onFilterChanges, onPageReset }: TFilters) {
           <select
             value={level}
             onChange={(e) => {
-              setLevel(e.target.value);
+              setLevel(e.target.value as LEVEL);
               onPageReset();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
@@ -46,7 +46,7 @@ export function Filters({ filters, onFilterChanges, onPageReset }: TFilters) {
           <select
             value={category}
             onChange={(e) => {
-              setCategory(e.target.value);
+              setCategory(e.target.value as CATEGORY);
               onPageReset();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
