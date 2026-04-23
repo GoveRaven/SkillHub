@@ -2,7 +2,7 @@
 
 import { TFullCourse } from '@/types/courses';
 import { Pagination } from './pagination';
-import { CourseCards } from '@/components/course-card';
+import { CourseCard } from '@/components/course-card';
 import { COURSESPERPAGE } from '@/consts/coursesPage';
 
 type TCourses = {
@@ -30,7 +30,9 @@ export function Courses({ courses, currentPage, onPageChange }: TCourses) {
             <p className='text-gray-400 text-sm'>Попробуйте другие фильтры</p>
           </div>
         ) : (
-          <CourseCards courses={currentCourses} />
+          currentCourses.map((course: TFullCourse) => (
+            <CourseCard key={course.documentId} course={course} />
+          ))
         )}
       </div>
       {countPages > 1 && (

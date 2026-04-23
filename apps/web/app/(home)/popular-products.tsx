@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
-import { CourseCards } from '@/components/course-card';
+import { CourseCard } from '@/components/course-card';
 
 type TPopularProducts = {
   products: TFullCourse[];
@@ -18,7 +18,9 @@ export function PopularProducts({ products }: TPopularProducts) {
         </p>
       </div>
       <div className='grid grid-cols-3 gap-8'>
-        <CourseCards courses={popularProducts} />
+        {popularProducts.map((course: TFullCourse) => (
+          <CourseCard key={course.title} course={course} />
+        ))}
       </div>
       <Link
         href={ROUTES.CATALOG}
