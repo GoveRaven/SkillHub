@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Error from '@/components/error';
 import Link from 'next/link';
-import { ROUTES } from '@/consts/routes';
+import { API_URL, ROUTES } from '@/consts/routes';
 import { useCourse } from '@/api/hooks/useCourses';
 
 export function Course() {
@@ -30,7 +30,8 @@ export function Course() {
       <div className='grid grid-cols-2 gap-12 mb-20 items-start'>
         <Image
           className='w-full h-[500px] bg-gray-200 rounded-3xl'
-          src={`http://localhost:1337${course.cover.url}`}
+          //TODO: сделать утилиту для адреса
+          src={`${API_URL}${course.cover.url}`}
           alt={course.cover.alternativeText}
           width={100}
           height={100}

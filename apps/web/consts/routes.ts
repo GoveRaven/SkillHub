@@ -9,3 +9,6 @@ export const ROUTES = {
   BLOG: BLOG_ROUTES,
   COURSE: '/course',
 };
+
+// TODO: перед деплоем убрать заменить URL 
+export const API_URL = 'http://localhost:1337';
