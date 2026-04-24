@@ -20,5 +20,5 @@ export type TFullCourse = TCourse & {
 
 type TCover = {
   url: string;
-  alternativeText: string
-}
+  alternativeText: string;
+};

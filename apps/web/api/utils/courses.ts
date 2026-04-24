@@ -1,12 +1,8 @@
+import { TFilters } from '@/types/filters';
 import { BASE_URL, ENDPOINT, POPULATE_ALL } from '../config';
 
-export type TFilters = {
-  level: string;
-  category: string;
-};
-
 export async function fetchCourses(filters: TFilters) {
-  const url = filterCourses(filters);
+  const url = getUrlWithFilters(filters);
   const res = await fetch(url);
   if (!res.ok) {
     throw new Error(`Error: ${res.status}`);
@@ -26,7 +22,7 @@ export async function fetchCourse(documentId: string) {
   return data;
 }
 
-function filterCourses(filters: TFilters) {
+function getUrlWithFilters(filters: TFilters) {
   const url = new URL(`${BASE_URL}${ENDPOINT.COURSE}`);
   for (const [key, value] of Object.entries(filters)) {
     if (value && value !== 'Все') {

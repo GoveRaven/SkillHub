@@ -1,19 +1,22 @@
-import { CATEGORY, LEVEL } from '@/consts/filters';
+import { CATEGORY, SKILL_LEVEL } from '@/consts/filters';
+import { TFilters } from '@/types/filters';
 
-type TFilters = {
-  filters: {
-    level: LEVEL;
-    category: CATEGORY;
-  };
+// TODO: поменять имя (?)
+type TFiltersComponent = {
+  filters: TFilters;
   onFilterChanges: {
-    setLevel: (filter: LEVEL) => void;
+    setLevel: (filter: SKILL_LEVEL) => void;
     setCategory: (filter: CATEGORY) => void;
   };
-  onPageReset: () => void;
+  resetPage: () => void;
 };
 
-export function Filters({ filters, onFilterChanges, onPageReset }: TFilters) {
-  const { level, category } = filters;
+export function Filters({
+  filters,
+  onFilterChanges,
+  resetPage,
+}: TFiltersComponent) {
+  const { skillLevel, category } = filters;
   const { setLevel, setCategory } = onFilterChanges;
 
   return (
@@ -24,16 +27,16 @@ export function Filters({ filters, onFilterChanges, onPageReset }: TFilters) {
             Уровень
           </span>
           <select
-            value={level}
+            value={skillLevel}
             onChange={(e) => {
-              setLevel(e.target.value as LEVEL);
-              onPageReset();
+              setLevel(e.target.value as SKILL_LEVEL);
+              resetPage();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
           >
-            {Object.values(LEVEL).map((level) => (
-              <option key={level} value={level}>
-                {level}
+            {Object.values(SKILL_LEVEL).map((skillLevel) => (
+              <option key={skillLevel} value={skillLevel}>
+                {skillLevel}
               </option>
             ))}
           </select>
@@ -47,7 +50,7 @@ export function Filters({ filters, onFilterChanges, onPageReset }: TFilters) {
             value={category}
             onChange={(e) => {
               setCategory(e.target.value as CATEGORY);
-              onPageReset();
+              resetPage();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
           >

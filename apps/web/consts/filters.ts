@@ -1,19 +1,19 @@
-export enum LEVEL {
-  ALL = 'Все',
-  JUNIOR = 'Новичок',
-  MIDDLE = 'Средний',
-  SENIOR = 'Продвинутый',
+export enum SKILL_LEVEL {
+  all = 'Все',
+  junior = 'Новичок',
+  middle = 'Средний',
+  senior = 'Продвинутый',
 }
 
 export enum CATEGORY {
-  ALL = 'Все',
-  FRONTEND = 'Frontend',
-  BACKEND = 'Backend',
-  UIUX = 'UI/UX',
-  STATE_MANAGEMENT = 'State Management',
+  all = 'Все',
+  frontend = 'Frontend',
+  backend = 'Backend',
+  uiux = 'UI/UX',
+  stateManagement = 'State Management',
 }
 
-export const defaultFilter = {
-  level: LEVEL.ALL,
-  category: CATEGORY.ALL,
+export const DEFAULT_FILTER = {
+  skillLevel: SKILL_LEVEL.all,
+  category: CATEGORY.all,
 };

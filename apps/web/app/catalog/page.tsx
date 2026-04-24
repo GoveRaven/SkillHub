@@ -6,17 +6,17 @@ import { Filters } from './filters';
 import Loader from '@/components/loader';
 import Error from '@/components/error';
 import { useCourses } from '@/api/hooks/useCourses';
-import { CATEGORY, LEVEL } from '@/consts/filters';
+import { CATEGORY, SKILL_LEVEL } from '@/consts/filters';
 
 export default function Catalog() {
-  const [currentLevel, setCurrentLevel] = useState(LEVEL.ALL);
-  const [currentCategory, setCurrentCategory] = useState(CATEGORY.ALL);
+  const [currentLevel, setCurrentLevel] = useState(SKILL_LEVEL.all);
+  const [currentCategory, setCurrentCategory] = useState(CATEGORY.all);
   const [currentPage, setPage] = useState(1);
-  const onPageReset = useCallback(() => setPage(1), []);
+  const resetPage = useCallback(() => setPage(1), []);
 
   const filters = useMemo(
     () => ({
-      level: currentLevel,
+      skillLevel: currentLevel,
       category: currentCategory,
     }),
     [currentLevel, currentCategory],
@@ -44,7 +44,7 @@ export default function Catalog() {
           setLevel: setCurrentLevel,
           setCategory: setCurrentCategory,
         }}
-        onPageReset={onPageReset}
+        resetPage={resetPage}
       />
       <Courses
         courses={courses || []}

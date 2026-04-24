@@ -7,10 +7,10 @@ type TCourseCard = {
 };
 
 export function CourseCard({ course }: TCourseCard) {
-  console.log('Рендер карточки');
   return (
     <>
       <Link
+      //TODO: вынести в утилиту
         href={`${ROUTES.COURSE}/${course.documentId}`}
         key={course.documentId}
         className='bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all
