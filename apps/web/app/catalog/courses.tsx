@@ -3,7 +3,7 @@
 import { TFullCourse } from '@/types/courses';
 import { Pagination } from './pagination';
 import { CourseCard } from '@/components/course-card';
-import { COURSESPERPAGE } from '@/consts/coursesPage';
+import { COURSESPERPAGE } from '@/consts/courses-page';
 import { useMemo } from 'react';
 
 type TCourses = {
