@@ -2,7 +2,7 @@ type TPagination = {
   countPages: number;
   curentPage: number;
   onPageChange: (page: number) => void;
-}
+};
 
 export function Pagination({
   countPages,
@@ -11,7 +11,7 @@ export function Pagination({
 }: TPagination) {
   return (
     <div className='flex justify-center items-center space-x-2 mt-12'>
-      {Array.from(Array(countPages).keys()).map((number) => {
+      {Array.from({ length: countPages }, (_, i) => i).map((number) => {
         const pageNumber = number + 1;
         const isActive = curentPage === pageNumber;
 
