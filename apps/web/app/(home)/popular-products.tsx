@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
 import { CourseCard } from '@/components/course-card';
+import { EmptyState } from '@/components/empty-state';
 
 type TPopularProducts = {
   products: TFullCourse[];
-}
+};
 
 export function PopularProducts({ products }: TPopularProducts) {
   const popularProducts = products.slice(0, 6);
@@ -17,11 +18,15 @@ export function PopularProducts({ products }: TPopularProducts) {
           Выбери курс и начни путь в IT
         </p>
       </div>
-      <div className='grid grid-cols-3 gap-8'>
-        {popularProducts.map((course: TFullCourse) => (
-          <CourseCard key={course.title} course={course} />
-        ))}
-      </div>
+      {popularProducts.length > 0 ? (
+        <div className='grid grid-cols-3 gap-8'>
+          {popularProducts.map((course: TFullCourse) => (
+            <CourseCard key={course.title} course={course} />
+          ))}
+        </div>
+      ) : (
+        <EmptyState />
+      )}
       <Link
         href={ROUTES.CATALOG}
         className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-12 py-5 rounded-2xl text-xl font-semibold hover:shadow-xl hover:-translate-y-1 transition-all flex justify-center mt-16 mx-auto w-fit'

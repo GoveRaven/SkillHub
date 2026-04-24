@@ -1,11 +1,12 @@
 import { TAdvantages } from '@/types/advantages';
+import { EmptyState } from './empty-state';
 
 interface IAdvantages {
   advantages: TAdvantages[];
 }
 
 export function Advantages({ advantages }: IAdvantages) {
-  return (
+  return advantages.length > 0 ? (
     <div className='grid grid-cols-3 gap-8'>
       {advantages.map((advantage) => (
         <div
@@ -26,5 +27,7 @@ export function Advantages({ advantages }: IAdvantages) {
         </div>
       ))}
     </div>
+  ) : (
+    <EmptyState />
   );
 }

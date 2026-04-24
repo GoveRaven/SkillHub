@@ -1,11 +1,12 @@
 import { TFAQ } from '@/types/FAQ';
+import { EmptyState } from './empty-state';
 
 interface IFAQ {
   faq: TFAQ[];
 }
 
 export function FAQ({ faq }: IFAQ) {
-  return (
+  return faq.length > 0 ? (
     <div className='space-y-6 max-w-5xl mx-auto'>
       {faq.map((faq) => (
         <div
@@ -19,5 +20,7 @@ export function FAQ({ faq }: IFAQ) {
         </div>
       ))}
     </div>
+  ) : (
+    <EmptyState />
   );
 }
