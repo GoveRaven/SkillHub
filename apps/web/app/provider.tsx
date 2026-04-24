@@ -11,7 +11,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export default function Provider({
+export function Provider({
   children,
 }: Readonly<{
   children: React.ReactNode;
