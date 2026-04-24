@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Courses } from './courses';
 import { Filters } from './filters';
 import Loader from '@/components/loader';
@@ -12,7 +12,7 @@ export default function Catalog() {
   const [currentLevel, setCurrentLevel] = useState(LEVEL.ALL);
   const [currentCategory, setCurrentCategory] = useState(CATEGORY.ALL);
   const [currentPage, setPage] = useState(1);
-  const onPageReset = () => setPage(1);
+  const onPageReset = useCallback(() => setPage(1), []);
 
   const filters = useMemo(
     () => ({
