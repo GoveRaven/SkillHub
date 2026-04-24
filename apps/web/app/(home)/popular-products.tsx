@@ -1,15 +1,24 @@
+'use client'
+
 import Link from 'next/link';
 import { ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
 import { CourseCard } from '@/components/course-card';
 import { EmptyState } from '@/components/empty-state';
+import { useCourses } from '@/api/hooks/useCourses';
+import Loader from '@/components/loader';
+import Error from '@/components/error';
 
-type TPopularProducts = {
-  products: TFullCourse[];
-};
+export function PopularProducts() {
+  const { courses, isPending, isError } = useCourses();
 
-export function PopularProducts({ products }: TPopularProducts) {
-  const popularProducts = products.slice(0, 6);
+  if (isPending) return <Loader />;
+  if (isError) return <Error />;
+
+  const favoriteCourses = [...courses].sort(
+    (a: TFullCourse, b: TFullCourse) => Number(b.rating) - Number(a.rating),
+  );
+  const popularProducts = favoriteCourses.slice(0, 6);
   return (
     <section className='py-20 px-8 mx-75'>
       <div className='text-center mb-16'>
