@@ -1,7 +1,7 @@
 import { ROUTES } from '@/consts/routes';
 import Link from 'next/link';
 
-export default function Error() {
+export function Error() {
   return (
     <div className='min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex flex-col items-center justify-center text-center px-8 py-20 gap-8'>
       <h1 className='text-9xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent'>

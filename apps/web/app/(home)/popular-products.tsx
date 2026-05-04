@@ -6,8 +6,9 @@ import { TFullCourse } from '@/types/courses';
 import { CourseCard } from '@/components/course-card';
 import { EmptyState } from '@/components/empty-state';
 import { useCourses } from '@/api/hooks/useCourses';
-import Loader from '@/components/loader';
-import Error from '@/components/error';
+import { Loader } from '@/components/loader';
+import { Error } from '@/components/error';
+import { useMemo } from 'react';
 
 export function PopularProducts() {
   const { courses, isPending, isError } = useCourses();

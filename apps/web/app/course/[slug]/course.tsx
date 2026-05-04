@@ -2,10 +2,10 @@
 
 import { Advantages } from '@/components/advantages';
 import { FAQ } from '@/components/FAQ';
-import Loader from '@/components/loader';
+import { Loader } from '@/components/loader';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import Error from '@/components/error';
+import { Error } from '@/components/error';
 import Link from 'next/link';
 import { API_URL, ROUTES } from '@/consts/routes';
 import { useCourse } from '@/api/hooks/useCourses';

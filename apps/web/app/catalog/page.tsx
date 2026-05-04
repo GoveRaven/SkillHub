@@ -3,8 +3,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Courses } from './courses';
 import { Filters } from './filters';
-import Loader from '@/components/loader';
-import Error from '@/components/error';
+import { Loader } from '@/components/loader';
+import { Error } from '@/components/error';
 import { useCourses } from '@/api/hooks/useCourses';
 import { CATEGORY, SKILL_LEVEL } from '@/consts/filters';
 

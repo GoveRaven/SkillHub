@@ -1,8 +1,8 @@
 'use client';
 
-import Loader from '@/components/loader';
+import { Loader } from '@/components/loader';
 import Link from 'next/link';
-import Error from '@/components/error';
+import { Error } from '@/components/error';
 import { TArticle } from '@/types/articles';
 import { useArticles } from '@/api/hooks/useArticles';
 import { ROUTES } from '@/consts/routes';
