@@ -23,33 +23,37 @@ export default function Blog() {
           Полезные статьи для разработчиков всех уровней
         </p>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-20'>
-        {articles.map((article: TArticle) => (
-          <Link
-            key={article.documentId}
-            //TODO: Завести утилиту для написания href
-            href={`${ROUTES.BLOG.BLOG}/${article.documentId}`}
-            className='group bg-white/70 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 h-full'
-          >
-            <div className='flex items-center gap-3 text-sm text-gray-500 mb-4'>
-              <span className='w-2 h-2 bg-gray-400 rounded-full'></span>
-              <span>{article.category}</span>
-            </div>
+      {articles ? (
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-20'>
+          {articles.map((article: TArticle) => (
+            <Link
+              key={article.documentId}
+              //TODO: Завести утилиту для написания href
+              href={`${MAIN_ROUTES.BLOG.BLOG}/${article.documentId}`}
+              className='group bg-white/70 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 h-full'
+            >
+              <div className='flex items-center gap-3 text-sm text-gray-500 mb-4'>
+                <span className='w-2 h-2 bg-gray-400 rounded-full'></span>
+                <span>{article.category}</span>
+              </div>
 
-            <h3 className='text-2xl md:text-3xl font-bold text-gray-800 hover:text-indigo-600 mb-4 leading-tight'>
-              {article.title}
-            </h3>
+              <h3 className='text-2xl md:text-3xl font-bold text-gray-800 hover:text-indigo-600 mb-4 leading-tight'>
+                {article.title}
+              </h3>
 
-            <p className='text-lg text-gray-600 leading-relaxed mb-6'>
-              {article.excerpt}
-            </p>
+              <p className='text-lg text-gray-600 leading-relaxed mb-6'>
+                {article.excerpt}
+              </p>
 
-            <span className='text-indigo-600 font-semibold'>
-              Читать полностью
-            </span>
-          </Link>
-        ))}
-      </div>
+              <span className='text-indigo-600 font-semibold'>
+                Читать полностью
+              </span>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <EmptyState />
+      )}
     </section>
   );
 }

@@ -32,10 +32,12 @@ export function Courses({ courses, currentPage, onPageChange }: TCourses) {
             </h2>
             <p className='text-gray-400 text-sm'>Попробуйте другие фильтры</p>
           </div>
-        ) : (
+        ) : currentCourses ? (
           currentCourses.map((course: TFullCourse) => (
             <CourseCard key={course.documentId} course={course} />
           ))
+        ) : (
+          []
         )}
       </div>
       {countPages > 1 && (
