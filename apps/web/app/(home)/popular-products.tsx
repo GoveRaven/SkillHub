@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Link from 'next/link';
 import { MAIN_ROUTES } from '@/consts/routes';
@@ -12,13 +12,15 @@ import { useMemo } from 'react';
 
 export function PopularProducts() {
   const { courses, isPending, isError } = useCourses();
+  const favoriteCourses = useMemo(() => {
+    return courses
+      ? [...courses].sort((a, b) => Number(b.rating) - Number(a.rating))
+      : [];
+  }, [courses]);
 
   if (isPending) return <Loader />;
   if (isError) return <Error />;
 
-  const favoriteCourses = [...courses].sort(
-    (a: TFullCourse, b: TFullCourse) => Number(b.rating) - Number(a.rating),
-  );
   const popularProducts = favoriteCourses.slice(0, 6);
   return (
     <section className='py-20 px-8 mx-75'>
