@@ -4,20 +4,18 @@ import { TFilters } from '@/types/filters';
 // TODO: поменять имя (?)
 type TFiltersComponent = {
   filters: TFilters;
-  onFilterChanges: {
-    setLevel: (filter: SKILL_LEVEL) => void;
-    setCategory: (filter: CATEGORY) => void;
-  };
+  setLevel: (skillLevel: SKILL_LEVEL) => void;
+  setCategory: (category: CATEGORY) => void;
   resetPage: () => void;
 };
 
 export function Filters({
   filters,
-  onFilterChanges,
+  setLevel,
+  setCategory,
   resetPage,
 }: TFiltersComponent) {
   const { skillLevel, category } = filters;
-  const { setLevel, setCategory } = onFilterChanges;
 
   return (
     <div className='mb-16 rounded-2xl border border-gray-200 bg-white p-4'>
