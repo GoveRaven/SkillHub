@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { ROUTES } from '@/consts/routes';
+import { MAIN_ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
 import { CourseCard } from '@/components/course-card';
 import { EmptyState } from '@/components/empty-state';
@@ -38,7 +38,7 @@ export function PopularProducts() {
         <EmptyState />
       )}
       <Link
-        href={ROUTES.CATALOG}
+        href={MAIN_ROUTES.CATALOG}
         className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-12 py-5 rounded-2xl text-xl font-semibold hover:shadow-xl hover:-translate-y-1 transition-all flex justify-center mt-16 mx-auto w-fit'
       >
         Посмотреть все курсы

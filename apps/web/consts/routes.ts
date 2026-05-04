@@ -3,12 +3,12 @@ const BLOG_ROUTES = {
   BLOG: '/blog',
 };
 
-export const ROUTES = {
+export const MAIN_ROUTES = {
   HOME: '/',
   CATALOG: '/catalog',
   BLOG: BLOG_ROUTES,
   COURSE: '/course',
 };
 
-// TODO: перед деплоем убрать заменить URL 
+// TODO: перед деплоем убрать заменить URL
 export const API_URL = 'http://localhost:1337';

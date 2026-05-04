@@ -3,7 +3,7 @@
 import { TFullCourse } from '@/types/courses';
 import { Pagination } from './pagination';
 import { CourseCard } from '@/components/course-card';
-import { COURSESPERPAGE } from '@/consts/courses-page';
+import { MAX_COURSES_PER_PAGE } from '@/consts/courses';
 import { useMemo } from 'react';
 
 type TCourses = {
@@ -15,8 +15,8 @@ type TCourses = {
 export function Courses({ courses, currentPage, onPageChange }: TCourses) {
   const currentCourses = useMemo(() => {
     return courses.slice(
-      (currentPage - 1) * COURSESPERPAGE,
-      currentPage * COURSESPERPAGE,
+      (currentPage - 1) * MAX_COURSES_PER_PAGE,
+      currentPage * MAX_COURSES_PER_PAGE,
     );
   }, [courses, currentPage]);
 

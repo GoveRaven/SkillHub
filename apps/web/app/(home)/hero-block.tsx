@@ -1,5 +1,5 @@
-import { ROUTES } from "@/consts/routes";
-import Link from "next/link";
+import { MAIN_ROUTES } from '@/consts/routes';
+import Link from 'next/link';
 
 export function HeroBlock() {
   return (
@@ -12,7 +12,10 @@ export function HeroBlock() {
           React, Next.js, TypeScript — полный стек для junior-разработчика.
           Практика на реальных проектах + помощь с трудоустройством.
         </p>
-        <Link href={ROUTES.CATALOG} className='bg-white text-indigo-800 px-12 py-5 rounded-full text-xl font-semibold hover:bg-gray-100 transition-all'>
+        <Link
+          href={MAIN_ROUTES.CATALOG}
+          className='bg-white text-indigo-800 px-12 py-5 rounded-full text-xl font-semibold hover:bg-gray-100 transition-all'
+        >
           Выбрать курс
         </Link>
       </div>

@@ -1,4 +1,4 @@
-import { ROUTES } from '@/consts/routes';
+import { MAIN_ROUTES } from '@/consts/routes';
 import Link from 'next/link';
 
 export function Error() {
@@ -12,7 +12,7 @@ export function Error() {
       </p>
 
       <Link
-        href={ROUTES.HOME}
+        href={MAIN_ROUTES.HOME}
         className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-12 py-5 rounded-2xl text-xl font-semibold hover:shadow-xl hover:-translate-y-1 transition-all'
       >
         На главную

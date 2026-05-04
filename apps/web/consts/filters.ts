@@ -9,7 +9,7 @@ export enum CATEGORY {
   all = 'Все',
   frontend = 'Frontend',
   backend = 'Backend',
-  uiux = 'UI/UX',
+  uiUx = 'UI/UX',
   stateManagement = 'State Management',
 }
 

@@ -4,7 +4,7 @@ import { Loader } from '@/components/loader';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { Error } from '@/components/error';
-import { ROUTES } from '@/consts/routes';
+import { MAIN_ROUTES } from '@/consts/routes';
 import Image from 'next/image';
 import { useArticle } from '@/api/hooks/useArticles';
 
@@ -19,7 +19,7 @@ export function Article() {
   return (
     <section className='py-20 px-8 max-w-4xl mx-auto'>
       <Link
-        href={ROUTES.BLOG.BLOG}
+        href={MAIN_ROUTES.BLOG.BLOG}
         className='inline-flex items-center gap-2 text-lg text-indigo-600 mb-12 font-medium hover:text-indigo-700'
       >
         Назад к блогу

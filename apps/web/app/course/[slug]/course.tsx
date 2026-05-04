@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { Error } from '@/components/error';
 import Link from 'next/link';
-import { API_URL, ROUTES } from '@/consts/routes';
+import { API_URL, MAIN_ROUTES } from '@/consts/routes';
 import { useCourse } from '@/api/hooks/useCourses';
 
 export function Course() {
@@ -21,7 +21,7 @@ export function Course() {
     <section className='py-20 px-8 max-w-7xl mx-auto'>
       <div className='mb-12'>
         <Link
-          href={ROUTES.CATALOG}
+          href={MAIN_ROUTES.CATALOG}
           className='inline-flex items-center gap-2 text-lg text-indigo-600 hover:text-indigo-700'
         >
           Назад в каталог

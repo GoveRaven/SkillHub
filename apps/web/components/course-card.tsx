@@ -1,4 +1,4 @@
-import { ROUTES } from '@/consts/routes';
+import { MAIN_ROUTES } from '@/consts/routes';
 import { TFullCourse } from '@/types/courses';
 import Link from 'next/link';
 
@@ -10,8 +10,8 @@ export function CourseCard({ course }: TCourseCard) {
   return (
     <>
       <Link
-      //TODO: вынести в утилиту
-        href={`${ROUTES.COURSE}/${course.documentId}`}
+        //TODO: вынести в утилиту
+        href={`${MAIN_ROUTES.COURSE}/${course.documentId}`}
         key={course.documentId}
         className='bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all
                  col-span-1 h-full flex flex-col justify-between'

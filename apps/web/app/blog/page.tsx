@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { Error } from '@/components/error';
 import { TArticle } from '@/types/articles';
 import { useArticles } from '@/api/hooks/useArticles';
-import { ROUTES } from '@/consts/routes';
+import { MAIN_ROUTES } from '@/consts/routes';
+import { EmptyState } from '@/components/empty-state';
 
 export default function Blog() {
   const { articles, isPending, isError } = useArticles();
