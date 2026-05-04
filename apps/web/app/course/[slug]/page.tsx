@@ -1,5 +1,5 @@
 import { Course } from './course';
 
-export default async function CoursePage() {
+export default function CoursePage() {
   return <Course />;
 }
