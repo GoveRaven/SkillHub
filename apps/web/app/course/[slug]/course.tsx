@@ -1,7 +1,7 @@
 'use client';
 
 import { Advantages } from '@/components/advantages';
-import { FAQ } from '@/components/FAQ';
+import { FAQElement } from '@/components/faq';
 import { Loader } from '@/components/loader';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
@@ -75,7 +75,7 @@ export function Course() {
         </h2>
         <Advantages advantages={course.advantages} />
       </div>
-      <FAQ faq={course.FAQ} />
+      <FAQElement faq={course.FAQ} />
     </section>
   );
 }

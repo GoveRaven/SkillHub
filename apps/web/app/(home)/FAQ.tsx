@@ -1,4 +1,4 @@
-import { FAQ } from '@/components/FAQ';
+import { FAQElement } from '@/components/faq';
 import { faqItems } from '@/data/FAQ.data';
 
 export function FAQBlock() {
@@ -10,7 +10,7 @@ export function FAQBlock() {
         </h2>
         <p className='text-xl text-gray-600'>Ответы на все твои вопросы</p>
       </div>
-      <FAQ faq={faqItems} />
+      <FAQElement faq={faqItems} />
     </section>
   );
 }
