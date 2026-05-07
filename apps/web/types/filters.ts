@@ -8,3 +8,8 @@ export type TFilters = {
   skillLevel: TSKILL_LEVEL;
   category: TCATEGORY;
 };
+
+export type TApiFilters = {
+    level: TSKILL_LEVEL,
+    category: TCATEGORY
+}
