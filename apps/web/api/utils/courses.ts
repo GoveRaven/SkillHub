@@ -5,7 +5,7 @@ export async function fetchCourses(filters: TFilters) {
   const url = getUrlWithFilters(filters);
   const res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`Error: ${res.status}`);
+    throw new Error(`Error: Failed to fetch courses`);
   }
   const { data } = await res.json();
   return data;
@@ -16,7 +16,7 @@ export async function fetchCourse(documentId: string) {
     `${BASE_URL}${ENDPOINT.COURSE}/${documentId}?${POPULATE_ALL}`,
   );
   if (!res.ok) {
-    throw new Error(`Error: ${res.status}`);
+    throw new Error(`Error: Failed to fetch courses. Course's ID: ${documentId}`);
   }
   const { data } = await res.json();
   return data;
