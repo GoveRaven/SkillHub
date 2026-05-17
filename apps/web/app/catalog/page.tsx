@@ -7,13 +7,13 @@ import { Loader } from '@/components/loader';
 import { Error } from '@/components/error';
 import { useCourses } from '@/api/hooks/useCourses';
 import { CATEGORY, SKILL_LEVEL } from '@/consts/filters';
-import { TCATEGORY, TSKILL_LEVEL } from '@/types/filters';
+import { TCategory, TSkillLevel } from '@/types/filters';
 
 export default function Catalog() {
-  const [currentLevel, setCurrentLevel] = useState<TSKILL_LEVEL>(
+  const [currentLevel, setCurrentLevel] = useState<TSkillLevel>(
     SKILL_LEVEL.all,
   );
-  const [currentCategory, setCurrentCategory] = useState<TCATEGORY>(
+  const [currentCategory, setCurrentCategory] = useState<TCategory>(
     CATEGORY.all,
   );
   const [currentPage, setPage] = useState(1);

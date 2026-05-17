@@ -1,11 +1,11 @@
 import { CATEGORY, SKILL_LEVEL } from '@/consts/filters';
-import { TCATEGORY, TFilters, TSKILL_LEVEL } from '@/types/filters';
+import { TCategory, TFilters, TSkillLevel } from '@/types/filters';
 
 // TODO: поменять имя (?)
 type TFiltersComponent = {
   filters: TFilters;
-  setLevel: (skillLevel: TSKILL_LEVEL) => void;
-  setCategory: (category: TCATEGORY) => void;
+  setLevel: (skillLevel: TSkillLevel) => void;
+  setCategory: (category: TCategory) => void;
   resetPage: () => void;
 };
 
@@ -27,7 +27,7 @@ export function Filters({
           <select
             value={skillLevel}
             onChange={(e) => {
-              setLevel(e.target.value as TSKILL_LEVEL);
+              setLevel(e.target.value as TSkillLevel);
               resetPage();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
@@ -47,7 +47,7 @@ export function Filters({
           <select
             value={category}
             onChange={(e) => {
-              setCategory(e.target.value as TCATEGORY);
+              setCategory(e.target.value as TCategory);
               resetPage();
             }}
             className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'

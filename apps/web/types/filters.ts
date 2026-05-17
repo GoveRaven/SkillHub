@@ -1,15 +1,14 @@
-import { CATEGORY, SKILL_LEVEL } from "@/consts/filters";
+import { CATEGORY, SKILL_LEVEL } from '@/consts/filters';
 
-export type TSKILL_LEVEL = typeof SKILL_LEVEL[keyof typeof SKILL_LEVEL]
-export type TCATEGORY = typeof CATEGORY[keyof typeof CATEGORY]
-
+export type TSkillLevel = (typeof SKILL_LEVEL)[keyof typeof SKILL_LEVEL];
+export type TCategory = (typeof CATEGORY)[keyof typeof CATEGORY];
 
 export type TFilters = {
-  skillLevel: TSKILL_LEVEL;
-  category: TCATEGORY;
+  skillLevel: TSkillLevel;
+  category: TCategory;
 };
 
 export type TApiFilters = {
-    level: TSKILL_LEVEL,
-    category: TCATEGORY
-}
+  level: TSkillLevel;
+  category: TCategory;
+};
