@@ -14,7 +14,7 @@ export function PopularProducts() {
   const { courses, isPending, isError } = useCourses();
   const favoriteCourses = useMemo(() => {
     return courses
-      ? [...courses].sort((a, b) => Number(b.rating) - Number(a.rating))
+      ? [...courses].sort((a, b) => b.rating - a.rating)
       : [];
   }, [courses]);
 
