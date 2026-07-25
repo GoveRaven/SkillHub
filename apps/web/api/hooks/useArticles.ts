@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchArticle, fetchArticles } from '../utils/articles';
+import { ArticleService } from '../services/article';
+
+const articleService = new ArticleService();
 
 export function useArticles() {
   //TODO: выводить error с помощью Sentry
@@ -10,7 +12,7 @@ export function useArticles() {
     error,
   } = useQuery({
     queryKey: ['articles'],
-    queryFn: fetchArticles,
+    queryFn: () => articleService.getArticles(),
   });
   return { articles, isPending, isError, error };
 }
@@ -23,7 +25,7 @@ export function useArticle(documentId: string) {
     error,
   } = useQuery({
     queryKey: ['article', documentId],
-    queryFn: () => fetchArticle(documentId),
+    queryFn: () => articleService.getArticleById(documentId),
   });
   return { article, isPending, isError, error };
 }

@@ -1,7 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchCourse, fetchCourses } from '../utils/courses';
 import { DEFAULT_FILTER } from '@/consts/filters';
 import { TFilters } from '@/types/filters';
+import { CourseService } from '../services/course';
+
+const courseService = new CourseService();
 
 export function useCourses(filters: TFilters = DEFAULT_FILTER) {
   //TODO: выводить error с помощью Sentry
@@ -12,7 +14,7 @@ export function useCourses(filters: TFilters = DEFAULT_FILTER) {
     error,
   } = useQuery({
     queryKey: ['courses', filters],
-    queryFn: () => fetchCourses(filters),
+    queryFn: () => courseService.getCourses(filters),
   });
   return { courses, isPending, isError, error };
 }
@@ -25,7 +27,7 @@ export function useCourse(documentId: string) {
     error,
   } = useQuery({
     queryKey: ['course', documentId],
-    queryFn: () => fetchCourse(documentId),
+    queryFn: () => courseService.getCourseById(documentId),
   });
   return { course, isPending, isError, error };
 }
