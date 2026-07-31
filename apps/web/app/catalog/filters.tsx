@@ -1,34 +1,65 @@
-interface IFiltersProps {
-  currentFilter: string;
-  onFilterChange: (filter: string) => void;
-  onPageReset: (filter: number) => void;
-}
+import { CATEGORY, SKILL_LEVEL } from '@/consts/filters';
+import { TCategory, TFilters, TSkillLevel } from '@/types/filters';
 
-export default function Filters({
-  currentFilter,
-  onFilterChange,
-  onPageReset: onPageChange,
-}: IFiltersProps) {
-  const levels = ['Все', 'Новичок', 'Средний', 'Продвинутый'];
+// TODO: поменять имя (?)
+type TFiltersComponent = {
+  filters: TFilters;
+  setLevel: (skillLevel: TSkillLevel) => void;
+  setCategory: (category: TCategory) => void;
+  resetPage: () => void;
+};
+
+export function Filters({
+  filters,
+  setLevel,
+  setCategory,
+  resetPage,
+}: TFiltersComponent) {
+  const { skillLevel, category } = filters;
 
   return (
-    <div className='flex justify-center mb-16 gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200'>
-      {levels.map((level) => (
-        <button
-          key={level}
-          onClick={() => {
-            onFilterChange(level);
-            onPageChange(1);
-          }}
-          className={`px-8 py-4 rounded-xl font-semibold whitespace-nowrap transition-colors duration-200 hover:shadow-lg ${
-            currentFilter === level
-              ? 'bg-gradient-to-r from-indigo-600 to-purple-700 text-white shadow-md'
-              : 'bg-white text-gray-700 hover:bg-gray-50 hover:text-indigo-700 border border-gray-200'
-          }`}
-        >
-          {level}
-        </button>
-      ))}
+    <div className='mb-16 rounded-2xl border border-gray-200 bg-white p-4'>
+      <div className='grid gap-4 md:grid-cols-2'>
+        <label className='block'>
+          <span className='mb-2 block text-sm font-medium text-gray-600'>
+            Уровень
+          </span>
+          <select
+            value={skillLevel}
+            onChange={(e) => {
+              setLevel(e.target.value as TSkillLevel);
+              resetPage();
+            }}
+            className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
+          >
+            {Object.values(SKILL_LEVEL).map((skillLevel) => (
+              <option key={skillLevel} value={skillLevel}>
+                {skillLevel}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className='block'>
+          <span className='mb-2 block text-sm font-medium text-gray-600'>
+            Категория
+          </span>
+          <select
+            value={category}
+            onChange={(e) => {
+              setCategory(e.target.value as TCategory);
+              resetPage();
+            }}
+            className='w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none'
+          >
+            {Object.values(CATEGORY).map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
     </div>
   );
 }

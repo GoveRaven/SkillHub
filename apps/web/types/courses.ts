@@ -6,14 +6,19 @@ export type TCourse = {
   level: 'Новичок' | 'Средний' | 'Продвинутый';
   rating: string;
   price: string;
-  id: number;
+  documentId: string;
 };
 
 export type TFullCourse = TCourse & {
   description: string;
-  cover: string;
+  cover: TCover;
   category: string;
   author: string;
-  benefits: TAdvantages[];
-  faq: TFAQ[];
+  advantages: TAdvantages[];
+  FAQ: TFAQ[];
+};
+
+type TCover = {
+  url: string;
+  alternativeText: string;
 };

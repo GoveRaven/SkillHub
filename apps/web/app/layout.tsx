@@ -1,13 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import Header from '@/component/Header';
+import { Header } from '@/components/Header';
+import { Provider } from './provider';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
+const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
@@ -15,7 +12,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Skillhub',
-  description: 'Pet-project',
+  description: 'Платформа онлайн-курсов',
 };
 
 export default function RootLayout({
@@ -25,12 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang='en'
+      lang='ru'
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col'>
         <Header />
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
