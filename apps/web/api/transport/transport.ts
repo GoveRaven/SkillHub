@@ -1,9 +1,15 @@
 export class Transport {
-  get(url: string) {
-    return this.request(url);
+  constructor(private readonly endpoint: string) {}
+
+  private readonly baseURL = 'http://localhost:1337/api';
+
+  get(path: string = '') {
+    return this.request(path);
   }
 
-  private async request(url: string) {
+  private async request(path: string) {
+    const url = `${this.baseURL}${this.endpoint}${path}`;
+    console.log(url);
     const response = await fetch(url);
 
     if (!response.ok) {
